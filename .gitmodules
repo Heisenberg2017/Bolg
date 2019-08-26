@@ -1,0 +1,4 @@
+[submodule "public"]
+	path = public
+	url = git@github.com:Heisenberg2017/Heisenberg2017.github.io.git
+	branch = master
