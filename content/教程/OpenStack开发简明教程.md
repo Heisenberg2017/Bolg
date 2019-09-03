@@ -48,7 +48,7 @@ OpenStack至少的需要8G以上的内存及单核心单线程，如果OpenStack
 
 #### 教程目录
 
-[开发环境搭建](https://duckduckgo.com).
+[开发环境搭建](https://heisenberg2017.github.io/%E6%96%87%E7%AB%A0/openstack%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/).
 
 [控制面板之Horizon](https://duckduckgo.com).
 
