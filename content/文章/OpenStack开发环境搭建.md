@@ -46,22 +46,30 @@ CentOS 7国内环境官方下载比较慢，这里可以选择阿里的镜像
 
 注意点：
 
-1.安装一直卡(2个小时以上+)在  `openstack Testing if puppet apply is finished ...` ,
-首先你应该要检查是否使用了镜像，如果确认使用了镜像且网络没有问题的话，可以直接`ctrl+c`退出，重启电脑然后重新执行
-`sudo packstack --allinone`,如果是在虚拟机内部署的All-in-One环境
+1.安装一直卡在
+```
+openstack Testing if puppet apply is finished...
+```
+首先你应该要先检查yum是否使用了镜像，如果确认使用了镜像且网络没有问题的话，可以直接ctrl+c退出，重启电脑然后重新执行
+```
+sudo packstack --allinone
+```
+如果是在虚拟机内部署的All-in-One环境
 可以分配更多的内存和CPU这样下载和启动速度都会快一点.
 
 2.安装失败且已经生成answerfile 
 如果安装失败但是在命令行中看到如下信息
-```shell script
+
+```
 * A new answerfile was created in: /root/packstack-answers-20190817-203646.txt
 ```
+
 那么你下次安装的时候记得直接执行
- `packstack --answer-file packstack-answers-20190817-203646.txt`
+ ```packstack --answer-file packstack-answers-20190817-203646.txt```
  这个时候packstack会根据已经生成的配置文件进行部署
 
 安装完成后你可以看到如下输出
-```shell script
+```
  Time synchronization installation was skipped. Please note that unsynchronized time on server instances might be problem for some OpenStack components.
 * File /root/keystonerc_admin has been created on OpenStack client host 192.168.12.128. To use the command line tools you need to source the file.
 * To access the OpenStack Dashboard browse to http://192.168.12.128/dashboard .
@@ -70,11 +78,11 @@ Please, find your login credentials stored in the keystonerc_admin in your home 
 * The generated manifests are available at: /var/tmp/packstack/20190818-091906-r_BX4u/manifests
 ```
  
-打开`http://192.168.12.128/dashboard`（具体IP查看部署命令输出）,你会看到如下界面
+打开http://192.168.12.128/dashboard （具体IP查看部署命令输出）,你会看到如下界面
 ![Horizon登陆页](/images/Openstack登陆页面.png "Horizon登陆页")
-你的页面颜色可能和我不一样，我这里使用了chrome的插件,用户名和密码在`packstack-answers-20190817-203646.txt`
-的这个文件里面，你可以使用`sudo find / -name "packstack-answers-*"`查看这个配置文件的位置，打开这个文件找到下面的两行
-```shell script
+你的页面颜色可能和我不一样，我这里使用了chrome的插件,用户名和密码在packstack-answers-20190817-203646.txt
+的这个文件里面，你可以使用sudo find / -name "packstack-answers-*"查看这个配置文件的位置，打开这个文件找到下面的两行
+```
 # Password to use for the Identity service 'admin' user.
 CONFIG_KEYSTONE_ADMIN_PW=97a7dd26984940ff
 
@@ -82,6 +90,7 @@ CONFIG_KEYSTONE_ADMIN_PW=97a7dd26984940ff
 CONFIG_KEYSTONE_DEMO_PW=63c2dd13d9154ab6
 ```
 admin用户对应密码CONFIG_KEYSTONE_ADMIN_PW,
+
 demo用户对应密码CONFIG_KEYSTONE_DEMO_PW
 
 我们使用demo用户登陆,登陆成功后看到
