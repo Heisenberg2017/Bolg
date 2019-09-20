@@ -30,7 +30,7 @@ PackStack和Puppet在16年的调查中市场占有率超过50%，不过后面Ans
 无论是官方或者其他部署工具都会告诉你尽量使用纯净的系统进行All-in-One部署，
 我觉得你应该也不想花大量时间来解决系统的依赖问题，所以我们从操作系统安装开始
 
-VMware14和CentOS 7的安装可以参考一下这篇博客[VMware14安装CentOS 7](https://duckduckgo.com).
+VMware14和CentOS 7的安装可以参考一下这篇博客[VMware14安装CentOS 7](https://blog.csdn.net/yang5726685/article/details/78635388).
 
 CentOS 7国内环境官方下载比较慢，这里可以选择阿里的镜像
 [CentOS 7国内镜像](http://mirrors.aliyun.com/centos/7.6.1810/).
@@ -65,10 +65,15 @@ sudo packstack --allinone
 ```
 
 那么你下次安装的时候记得直接执行
- ```packstack --answer-file packstack-answers-20190817-203646.txt```
- 这个时候packstack会根据已经生成的配置文件进行部署
 
+```
+packstack --answer-file packstack-answers-20190817-203646.txt
+```
+
+这个时候packstack会根据已经生成的配置文件进行部署
 安装完成后你可以看到如下输出
+
+
 ```
  Time synchronization installation was skipped. Please note that unsynchronized time on server instances might be problem for some OpenStack components.
 * File /root/keystonerc_admin has been created on OpenStack client host 192.168.12.128. To use the command line tools you need to source the file.
