@@ -28,11 +28,14 @@ thinkpad目录下的OpenStackCode就是我们步骤1创建的目录，
 ![项目代码结构](/images/项目代码结构.png "项目代码结构")
 
 目前我在本地需要修改的项目源码是openstack_dashboard这个目录
-```shell script
+
+```
 OpenStackCode/openstack-horizon/python-django-horizon/usr/lib/python2.7/dist-packages/openstack_dashboard
 ```
+
 对应的远程的代码路径是
-```shell script
+
+```
 /usr/share/openstack-dashboard/openstack_dashboard
 ```
 
