@@ -9,7 +9,7 @@ draft: false
 
 #### 教程目的
 
-让学员可以更快的参与到项目开发中去，会适当提到OpenStack的设计及实现相关知识，但OpenStack设计与实现已经超出此系列教程的范围，所以这部分
+让看完的同学可以更快的参与到项目开发中去，会适当提到OpenStack的设计及实现相关知识，但OpenStack设计与实现已经超出此系列教程的范围，所以这部分
 不会深入讲解，仅会在段落或者文章末尾贴出链接让大家自行学习。
 
 #### 学习本教程需要
@@ -43,14 +43,11 @@ OpenStack至少的需要8G以上的内存及单核心单线程，如果OpenStack
 一些环境的安装例如VMware、Pycharm之类或者其他已经有很多安装教程的软件会直接贴出安装教程的链接，并提示一些要注意的地方。
 
 
-#### 本教程遵循下面的原则
-> Talk is cheap. Show me the code.
-
 #### 教程目录
 
 [开发环境搭建](https://heisenberg2017.github.io/%E6%96%87%E7%AB%A0/openstack%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/).
 
-[控制面板之Horizon](https://duckduckgo.com).
+[自定义Horizon](https://heisenberg2017.github.io/%E6%96%87%E7%AB%A0/%E4%BD%BF%E7%94%A8horizon%E6%9E%84%E5%BB%BA%E8%87%AA%E5%AE%9A%E4%B9%89%E7%9A%84dashboard/).
 
 [计算之Nova](https://duckduckgo.com).
 
