@@ -383,6 +383,7 @@ ADD_INSTALLED_APPS = [
 
 * 本文章基于
 [Building a Dashboard using Horizon](https://docs.openstack.org/horizon/rocky/contributor/tutorials/dashboard.html)，
+
 如果想为table添加更加复杂的行为可以查看
 [Adding a complex action to a table](https://docs.openstack.org/horizon/rocky/contributor/tutorials/table_actions.html)
 
