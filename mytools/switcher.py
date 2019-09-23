@@ -6,9 +6,8 @@ import os
 def write_content(f, content):
     f.write("<code>\n")
     for c in content:
-        f.write("%s\n"% c)
+        f.write("%s\n" % c)
     f.write("</code>\n")
-
 
 
 def main():
@@ -61,12 +60,6 @@ def main():
             continue
 
         dst_f.write("%s\n" % line)
-
-
-
-
-
-
 
 
 if __name__ == '__main__':
