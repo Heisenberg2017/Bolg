@@ -317,7 +317,49 @@ index.html
 {% endblock %}
 ```
 
-TODO: 这里还有几个文件没有写进来
+test.py
+```python
+from horizon.test import helpers as test
+
+
+class MypanelTests(test.TestCase):
+    # Unit tests for mypanel.
+    def test_me(self):
+        self.assertTrue(1 + 1 == 2)
+
+```
+
+models.py
+```python
+# Additional Model for mydashboard.
+```
+
+mydashboard.css
+```
+/* Additional CSS for mydashboard. */
+```
+
+mydashboard.js
+```
+/* Additional JavaScript for mydashboard. */
+```
+
+bash.html
+```
+{% extends 'base.html' %}
+
+{% block sidebar %}
+  {% include 'horizon/common/_sidebar.html' %}
+{% endblock %}
+
+{% block main %}
+    {% include "horizon/_messages.html" %}
+    {% block mydashboard_main %}{% endblock %}
+{% endblock %}
+
+```
+
+
 
 
 #### 使代码生效
