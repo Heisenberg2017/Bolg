@@ -11,7 +11,7 @@ def write_content(f, content):
 
 
 def main():
-    f = open(r'D:\Users\thinkpad\Bolg\mytools\source.md',
+    f = open(r'D:\Users\thinkpad\Bolg\mytools\transltate\source.md',
              'r', encoding='utf-8')
     dst_f = open('dst.md', 'w', encoding='utf-8')
 
