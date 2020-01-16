@@ -1,4 +1,4 @@
 [submodule "public"]
 	path = public
-	url = https://github.com/Heisenberg2017/Heisenberg2017.github.io.git
+	url = http://github.com/Heisenberg2017/Heisenberg2017.github.io.git
 	branch = master
