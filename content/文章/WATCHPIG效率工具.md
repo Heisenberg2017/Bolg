@@ -1,7 +1,7 @@
 ---
 title: "WATCHPIG效率工具"
 date: 2020-01-16T11:13:52+08:00
-draft: true
+draft: false
 ---
 
 针对远程开发及修改代码需要执行对应命令的场景
