@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <link href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/monokai.min.css" rel="stylesheet">
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+    <title>西斯小跳的博客  | WATCHPIG效率工具</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.58.0-DEV" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="/dist/css/app.d98f2eb6bcd1eaedb7edf166bd16af26.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+    
+
+    
+
+    <meta property="og:title" content="WATCHPIG效率工具" />
+<meta property="og:description" content="针对远程开发及修改代码需要执行对应命令的场景" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://heisenberg2017.github.io/%E6%96%87%E7%AB%A0/watchpig%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/" />
+<meta property="article:published_time" content="2020-01-16T11:13:52+08:00" />
+<meta property="article:modified_time" content="2020-01-16T11:13:52+08:00" />
+<meta itemprop="name" content="WATCHPIG效率工具">
+<meta itemprop="description" content="针对远程开发及修改代码需要执行对应命令的场景">
+
+
+<meta itemprop="datePublished" content="2020-01-16T11:13:52&#43;08:00" />
+<meta itemprop="dateModified" content="2020-01-16T11:13:52&#43;08:00" />
+<meta itemprop="wordCount" content="236">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="WATCHPIG效率工具"/>
+<meta name="twitter:description" content="针对远程开发及修改代码需要执行对应命令的场景"/>
+
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="https://heisenberg2017.github.io/" class="f3 fw2 hover-white no-underline white-90 dib">
+      西斯小跳的博客
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/%E5%88%86%E4%BA%AB/" title="分享 page">
+              分享
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/%E6%95%99%E7%A8%8B/" title="教程 page">
+              教程
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/%E6%96%87%E7%AB%A0/" title="文章 page">
+              文章
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+
+
+
+
+
+
+
+<a href="https://github.com/Heisenberg2017" target="_blank" class="link-transition github link dib z-999 pt3 pt0-l mr1" title="Github link" rel="noopener" aria-label="follow on Github——Opens in a new window">
+  <svg  height="32px"  style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <path d="M256,32C132.3,32,32,134.8,32,261.7c0,101.5,64.2,187.5,153.2,217.9c11.2,2.1,15.3-5,15.3-11.1   c0-5.5-0.2-19.9-0.3-39.1c-62.3,13.9-75.5-30.8-75.5-30.8c-10.2-26.5-24.9-33.6-24.9-33.6c-20.3-14.3,1.5-14,1.5-14   c22.5,1.6,34.3,23.7,34.3,23.7c20,35.1,52.4,25,65.2,19.1c2-14.8,7.8-25,14.2-30.7c-49.7-5.8-102-25.5-102-113.5   c0-25.1,8.7-45.6,23-61.6c-2.3-5.8-10-29.2,2.2-60.8c0,0,18.8-6.2,61.6,23.5c17.9-5.1,37-7.6,56.1-7.7c19,0.1,38.2,2.6,56.1,7.7   c42.8-29.7,61.5-23.5,61.5-23.5c12.2,31.6,4.5,55,2.2,60.8c14.3,16.1,23,36.6,23,61.6c0,88.2-52.4,107.6-102.3,113.3   c8,7.1,15.2,21.1,15.2,42.5c0,30.7-0.3,55.5-0.3,63c0,6.1,4,13.3,15.4,11C415.9,449.1,480,363.1,480,261.7   C480,134.8,379.7,32,256,32z"/>
+</svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+
+    <header class="mt4 w-100">
+      <p class="f6 b helvetica tracked">
+          
+        文章
+      </p>
+      <h1 class="f1 athelas mb1">WATCHPIG效率工具</h1>
+      
+      <time class="f6 mv4 dib tracked" datetime="2020-01-16T11:13:52&#43;08:00">January 16, 2020</time>
+      
+      
+    </header>
+
+    <section class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p>针对远程开发及修改代码需要执行对应命令的场景</p>
+
+<h4 id="我的开发场景">我的开发场景</h4>
+
+<p>1.在一个需求开发中需要修改的组件很多，修改完需要重启各个组件代码才会生效</p>
+
+<p>2.我可能需要频繁修改代码，频繁重启组件才能完成一次开发任务</p>
+
+<p>3.我在Win10上开发，代码会同步到远程的开发服务器上</p>
+
+<h4 id="痛点">痛点</h4>
+
+<p>1.每次变更代码后需要重启才能生效，偶尔会出现忘记重启</p>
+
+<p>2.修改涉及多个组件，每个组件需要执行的命令不同</p>
+
+<p>3.我要记住修改的文件位置对应需要执行的命令，一个地方未执行就可能导致服务报错，这个时候我需要花时间DEBUG,可能十几分钟后才发现是忘记执行重启命令导致的</p>
+
+<p>4.没有一个清晰的反馈，更新了哪些文件，执行成功或者失败，执行时间</p>
+
+<h4 id="为什么自己写">为什么自己写</h4>
+
+<p>Django有autoreload模块，文件监控做的比较好的有watchdog，开箱即用不好吗？</p>
+
+<p>1.不希望引入第三方依赖</p>
+
+<p>2.本身功能简单，需要花费时间较少</p>
+
+<p>2.我需要做一些定制，例如输出emoji，字体渲染之类</p>
+
+<h4 id="使用watchpig">使用WATCHPIG</h4>
+
+<p>1.下载源码</p>
+
+<pre><code class="language-shell">git clone https://github.com/Heisenberg2017/watchpig.git
+</code></pre>
+
+<p>2.查看配置文件</p>
+
+<pre><code class="language-shell">vi vi watchpig/monitor.conf
+</code></pre>
+
+<p>单个监控单元配置如下</p>
+
+<pre><code class="language-shell">[::EMOJI::nova|| nova]
+path = /usr/lib/python2.7/dist-packages/nova
+action = service nova-api restart
+excludes = .*\.mo
+</code></pre>
+
+<p>path为监控的目录，当监控目录有文件变化时，会执行对应的action
+excludes用来排除你不需要监控的文件后缀，这个例子中.mo后缀的文件即使发生变化也不会执行对应action</p>
+
+<p>[]中的为项目描述，这些奇怪字符作用会在后面说明</p>
+
+<p>3.配置环境变量
+你可以临时配置或者写在.bashrc中
+下面是临时配置:</p>
+
+<pre><code class="language-shell">export WATCHPIG=/root/watchpig/monitor.conf
+</code></pre>
+
+<p>4.运行</p>
+
+<pre><code class="language-shell">root@osd6:~# python watchpig/src/watchpig/main.py monitor
+</code></pre>
+
+<p>5.操作并查看输出</p>
+
+<p><img src="/images/WATCHDOG运行示例.png" alt="WATCHDOG运行示例" title="WATCHDOG运行示例" /></p>
+
+<p>第一部分为启动的信息，输出中包含代表项目图标的emoji,项目名称</p>
+
+<p>第二部分包含文件变更信息，及命令执行情况，这里执行失败，所以是愤怒的emoji</p>
+
+<p>第三部分为命令执行成功后的情况</p>
+
+<p>这个应用基本满足我的要求,让我不需要关心服务是否重启，思考更新了哪些文件，什么时候执行的，</p>
+
+<p>简单且带高亮带emoji的输出让我可以更快的获得信息，而不是在一堆无重点且难以辨认的日志信息查找我要的信息</p>
+
+<p>例如下面的变更信息,我真的不关心是10kbit/s还是20kbit/s</p>
+
+<pre><code class="language-shell">[2020/1/16 16:02] Upload file 'D:\Users\thinkpad\OpenStackCode\openstack-gpucloud\gpucloud\common\rabbitmq_client.py' to '/tmp/pycharm_project_650/gpucloud/common/rabbitmq_client.py'
+[2020/1/16 16:02] Upload file 'D:\Users\thinkpad\OpenStackCode\openstack-gpucloud\gpucloud\common\subject.py' to '/tmp/pycharm_project_650/gpucloud/common/subject.py'
+[2020/1/16 16:02] Upload file 'D:\Users\thinkpad\OpenStackCode\openstack-gpucloud\gpucloud\common\management\commands\resource_report.py' to '/tmp/pycharm_project_650/gpucloud/common/management/commands/resource_report.py'
+[2020/1/16 16:02] Upload file 'D:\Users\thinkpad\OpenStackCode\openstack-gpucloud\gpucloud\gpucloud\settings.py' to '/tmp/pycharm_project_650/gpucloud/gpucloud/settings.py'
+[2020/1/16 16:02] Automatic upload completed in 35 ms: 4 files transferred (542.8 kbit/s)
+[2020/1/16 16:17] Automatic upload
+[2020/1/16 16:17] Upload file 'D:\Users\thinkpad\OpenStackCode\openstack-gpucloud\gpucloud\common\rabbitmq_client.py' to '/tmp/pycharm_project_650/gpucloud/common/rabbitmq_client.py'
+[2020/1/16 16:17] Automatic upload completed in 30 ms: 1 file transferred (74.1 kbit/s)
+[2020/1/16 16:19] Automatic upload
+[2020/1/16 16:19] Upload file 'D:\Users\thinkpad\OpenStackCode\openstack-gpucloud\gpucloud\common\rabbitmq_client.py' to '/tmp/pycharm_project_650/gpucloud/common/rabbitmq_client.py'
+[2020/1/16 16:19] Upload file 'D:\Users\thinkpad\OpenStackCode\openstack-gpucloud\gpucloud\common\subject.py' to '/tmp/pycharm_project_650/gpucloud/common/subject.py'
+[2020/1/16 16:19] Upload file 'D:\Users\thinkpad\OpenStackCode\openstack-gpucloud\gpucloud\common\management\commands\resource_report.py' to '/tmp/pycharm_project_650/gpucloud/common/management/commands/resource_report.py'
+[2020/1/16 16:19] Upload file 'D:\Users\thinkpad\OpenStackCode\openstack-gpucloud\gpucloud\gpucloud\settings.py' to '/tmp/pycharm_project_650/gpucloud/gpucloud/settings.py'
+[2020/1/16 16:19] Automatic upload completed in 60 ms: 4 files transferred (316.6 kbit/s)
+</code></pre>
+
+<h4 id="自定义输出">自定义输出</h4>
+
+<p>如果需要添加/修改/删除emoji怎么做？在你的命令行中不兼容emoji输出乱码很烦人如何解决？</p>
+
+<p>这里我们需要先了解paint，这是我们为文字变更颜色及添加emoji的关键
+到watchpig所在的目录下面执行命令</p>
+
+<pre><code class="language-shell">ipython -i watchpig/src/watchpig/painter.py
+</code></pre>
+
+<p><img src="/images/WATCHDOG上色.png" alt="WATCHDOG上色" title="WATCHDOG上色" /></p>
+
+<p>paint基本用法就在这里</p>
+
+<p>格式为{字符}::{变量名}::{变量字典对应的key}</p>
+
+<p>第一个::前面为需要处理的字符，允许重复上色，emoji表情的::前面不允许有任何字符，需要分段处理用||隔开</p>
+
+<p>下面为watchpig/src/watchpig/painter.py中的EMOJI变量，
+如果你修改对应的表情，脚本输出也会对应修改，
+你还可以添加自己的表情，增加对应的key即可，
+如果其中一个EMOJI是乱码直接替换或者用u&rsquo; &lsquo;代替例如下面的foo</p>
+
+<pre><code class="language-shell">
+EMOJI = {
+    &quot;pig&quot;: u'🐷',
+    &quot;time&quot;: u'🕒',
+    &quot;separator&quot;: u'➖',
+    'succeed': u'😃',
+    'failed': u'😡',
+    &quot;run&quot;: u'🚀',
+    &quot;change&quot;: u'📝',
+
+    &quot;translate&quot;: u'💬',
+    &quot;dashboard&quot;: u'🌏',
+    &quot;horizon&quot;: u'🌏',
+    &quot;novaclient&quot;: u'🌟',
+    &quot;nova&quot;: u'🌟',
+    &quot;glance&quot;: u'💿',
+    &quot;cinder&quot;: u'💾',
+    &quot;gpucloud&quot;: u'🌈',
+    &quot;foo&quot;: u' ',
+}
+</code></pre>
+
+<h4 id="如何查找自己的emoji">如何查找自己的EMOJI</h4>
+
+<p>如果你不知道如何查找自己喜欢的可以使用自带的
+我们用这个命令查一下名称中带face的emoji，最好在你运行监控脚本的窗口中执行，这样也可以知道你的终端是否支持这个表情的展示</p>
+
+<pre><code class="language-shell">python watchpig/src/watchpig/main.py emoji --search face
+</code></pre>
+
+<p><img src="/images/查找emoji.png" alt="查找emoji" title="查找emoji" /></p>
+
+<p>找到表情后直接复制到
+watchpig/src/watchpig/painter.py-&gt;EMOJI-&gt;然后添加一个key和emoji，你也可以替换你不要的emoji</p>
+
+<h4 id="环境">环境</h4>
+
+<p>1.Win10+、CentOS6+、Ubuntu18.04都自带了EMOJI的支持</p>
+
+<p>2.Python2.7 不支持Python3, 因为我目前的开发环境都是python2.7</p>
+
+<p>3.可以运行在CentOS6+、Ubuntu18.04理论上linux都可以，不支持Win10</p><ul class="pa0">
+  
+</ul>
+<div class="mt6">
+      
+      
+      </div>
+    </section>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://heisenberg2017.github.io/" >
+    &copy; 2020 西斯小跳的博客
+  </a>
+    <div>
+
+
+
+
+
+
+
+<a href="https://github.com/Heisenberg2017" target="_blank" class="link-transition github link dib z-999 pt3 pt0-l mr1" title="Github link" rel="noopener" aria-label="follow on Github——Opens in a new window">
+  <svg  height="32px"  style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <path d="M256,32C132.3,32,32,134.8,32,261.7c0,101.5,64.2,187.5,153.2,217.9c11.2,2.1,15.3-5,15.3-11.1   c0-5.5-0.2-19.9-0.3-39.1c-62.3,13.9-75.5-30.8-75.5-30.8c-10.2-26.5-24.9-33.6-24.9-33.6c-20.3-14.3,1.5-14,1.5-14   c22.5,1.6,34.3,23.7,34.3,23.7c20,35.1,52.4,25,65.2,19.1c2-14.8,7.8-25,14.2-30.7c-49.7-5.8-102-25.5-102-113.5   c0-25.1,8.7-45.6,23-61.6c-2.3-5.8-10-29.2,2.2-60.8c0,0,18.8-6.2,61.6,23.5c17.9-5.1,37-7.6,56.1-7.7c19,0.1,38.2,2.6,56.1,7.7   c42.8-29.7,61.5-23.5,61.5-23.5c12.2,31.6,4.5,55,2.2,60.8c14.3,16.1,23,36.6,23,61.6c0,88.2-52.4,107.6-102.3,113.3   c8,7.1,15.2,21.1,15.2,42.5c0,30.7-0.3,55.5-0.3,63c0,6.1,4,13.3,15.4,11C415.9,449.1,480,363.1,480,261.7   C480,134.8,379.7,32,256,32z"/>
+</svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+
+
+</div>
+  </div>
+</footer>
+
+    
+
+  <script src="/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>

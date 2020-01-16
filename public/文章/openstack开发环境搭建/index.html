@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <link href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/monokai.min.css" rel="stylesheet">
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+    <title>西斯小跳的博客  | OpenStack开发环境搭建</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.58.0-DEV" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="/dist/css/app.d98f2eb6bcd1eaedb7edf166bd16af26.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+    
+
+    
+
+    <meta property="og:title" content="OpenStack开发环境搭建" />
+<meta property="og:description" content="OpenStack是一个复杂的技术栈组合，这一章节我们将使用PackStack
+快速部署一个本地的All-in-One环境。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://heisenberg2017.github.io/%E6%96%87%E7%AB%A0/openstack%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" />
+<meta property="article:published_time" content="2019-08-31T19:32:42+08:00" />
+<meta property="article:modified_time" content="2019-08-31T19:32:42+08:00" />
+<meta itemprop="name" content="OpenStack开发环境搭建">
+<meta itemprop="description" content="OpenStack是一个复杂的技术栈组合，这一章节我们将使用PackStack
+快速部署一个本地的All-in-One环境。">
+
+
+<meta itemprop="datePublished" content="2019-08-31T19:32:42&#43;08:00" />
+<meta itemprop="dateModified" content="2019-08-31T19:32:42&#43;08:00" />
+<meta itemprop="wordCount" content="197">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="OpenStack开发环境搭建"/>
+<meta name="twitter:description" content="OpenStack是一个复杂的技术栈组合，这一章节我们将使用PackStack
+快速部署一个本地的All-in-One环境。"/>
+
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="https://heisenberg2017.github.io/" class="f3 fw2 hover-white no-underline white-90 dib">
+      西斯小跳的博客
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/%E5%88%86%E4%BA%AB/" title="分享 page">
+              分享
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/%E6%95%99%E7%A8%8B/" title="教程 page">
+              教程
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/%E6%96%87%E7%AB%A0/" title="文章 page">
+              文章
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+
+
+
+
+
+
+
+<a href="https://github.com/Heisenberg2017" target="_blank" class="link-transition github link dib z-999 pt3 pt0-l mr1" title="Github link" rel="noopener" aria-label="follow on Github——Opens in a new window">
+  <svg  height="32px"  style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <path d="M256,32C132.3,32,32,134.8,32,261.7c0,101.5,64.2,187.5,153.2,217.9c11.2,2.1,15.3-5,15.3-11.1   c0-5.5-0.2-19.9-0.3-39.1c-62.3,13.9-75.5-30.8-75.5-30.8c-10.2-26.5-24.9-33.6-24.9-33.6c-20.3-14.3,1.5-14,1.5-14   c22.5,1.6,34.3,23.7,34.3,23.7c20,35.1,52.4,25,65.2,19.1c2-14.8,7.8-25,14.2-30.7c-49.7-5.8-102-25.5-102-113.5   c0-25.1,8.7-45.6,23-61.6c-2.3-5.8-10-29.2,2.2-60.8c0,0,18.8-6.2,61.6,23.5c17.9-5.1,37-7.6,56.1-7.7c19,0.1,38.2,2.6,56.1,7.7   c42.8-29.7,61.5-23.5,61.5-23.5c12.2,31.6,4.5,55,2.2,60.8c14.3,16.1,23,36.6,23,61.6c0,88.2-52.4,107.6-102.3,113.3   c8,7.1,15.2,21.1,15.2,42.5c0,30.7-0.3,55.5-0.3,63c0,6.1,4,13.3,15.4,11C415.9,449.1,480,363.1,480,261.7   C480,134.8,379.7,32,256,32z"/>
+</svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+
+    <header class="mt4 w-100">
+      <p class="f6 b helvetica tracked">
+          
+        文章
+      </p>
+      <h1 class="f1 athelas mb1">OpenStack开发环境搭建</h1>
+      
+      <time class="f6 mv4 dib tracked" datetime="2019-08-31T19:32:42&#43;08:00">August 31, 2019</time>
+      
+      
+    </header>
+
+    <section class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p>OpenStack是一个复杂的技术栈组合，这一章节我们将使用PackStack
+快速部署一个本地的All-in-One环境。</p>
+
+<h4 id="基本概念">基本概念</h4>
+
+<p>All-in-One: 所有的服务部署到一台服务器上</p>
+
+<p>Multi-Node: 控制节点和计算机分离</p>
+
+<p>Puppet: Puppet公司开发的系统管理框架和工具集，
+被用于IT服务的自动化管理。</p>
+
+<p>PackStack: Redhat推出的用于概念验证（PoC）环境快速部署的工具。
+他是一个命令行工具，它使用Python封装了Puppet模块，通过SSH在服务器上部署OpenStack。</p>
+
+<h4 id="部署工具">部署工具</h4>
+
+<p>PackStack和Puppet在16年的调查中市场占有率超过50%，不过后面Ansible风头更盛，这个章节并不打算对部署工具进行比较，
+我们只是搭建一个本地的All-in-One节点，如果你对其他部署工具感兴趣可以参考2018年OpenStack集群部署工具问卷:</p>
+
+<p><img src="/images/OpenStack部署工具调查.png" alt="2018年OpenStack集群部署工具问卷" title="2018年OpenStack集群部署工具问卷" /></p>
+
+<h4 id="操作系统的安装">操作系统的安装</h4>
+
+<p>无论是官方或者其他部署工具都会告诉你尽量使用纯净的系统进行All-in-One部署，
+我觉得你应该也不想花大量时间来解决系统的依赖问题，所以我们从操作系统安装开始</p>
+
+<p>VMware14和CentOS 7的安装可以参考一下这篇博客<a href="https://blog.csdn.net/yang5726685/article/details/78635388">VMware14安装CentOS 7</a>.</p>
+
+<p>CentOS 7国内环境官方下载比较慢，这里可以选择阿里的镜像
+<a href="http://mirrors.aliyun.com/centos/7.6.1810/">CentOS 7国内镜像</a>.</p>
+
+<h4 id="部署all-in-one">部署All-in-One</h4>
+
+<p>部署过程参考<a href="https://www.rdoproject.org/install/packstack/">rdo OpenStack All-in-One 环境部署</a>，
+注意我们安装的是Rocky版本，
+需使用openstack-rocky替换教程中的openstack-stein，Openstack历史版本可以查看
+<a href="https://releases.openstack.org/">OpenStack相关版本</a>，国内用户安装可以替换yum源以提高下载速度
+<a href="https://www.jianshu.com/p/4aa7b63f9026">使用阿里的yum镜像</a>。</p>
+
+<p>注意点：</p>
+
+<p>1.安装一直卡在</p>
+
+<pre><code>openstack Testing if puppet apply is finished...
+</code></pre>
+
+<p>首先你应该要先检查yum是否使用了镜像，如果确认使用了镜像且网络没有问题的话，可以直接ctrl+c退出，重启电脑然后重新执行</p>
+
+<pre><code>sudo packstack --allinone
+</code></pre>
+
+<p>如果是在虚拟机内部署的All-in-One环境
+可以分配更多的内存和CPU这样下载和启动速度都会快一点.</p>
+
+<p>2.安装失败且已经生成answerfile
+如果安装失败但是在命令行中看到如下信息</p>
+
+<pre><code>* A new answerfile was created in: /root/packstack-answers-20190817-203646.txt
+</code></pre>
+
+<p>那么你下次安装的时候记得直接执行</p>
+
+<pre><code>packstack --answer-file packstack-answers-20190817-203646.txt
+</code></pre>
+
+<p>这个时候packstack会根据已经生成的配置文件进行部署
+安装完成后你可以看到如下输出</p>
+
+<pre><code> Time synchronization installation was skipped. Please note that unsynchronized time on server instances might be problem for some OpenStack components.
+* File /root/keystonerc_admin has been created on OpenStack client host 192.168.12.128. To use the command line tools you need to source the file.
+* To access the OpenStack Dashboard browse to http://192.168.12.128/dashboard .
+Please, find your login credentials stored in the keystonerc_admin in your home directory.
+* The installation log file is available at: /var/tmp/packstack/20190818-091906-r_BX4u/openstack-setup.log
+* The generated manifests are available at: /var/tmp/packstack/20190818-091906-r_BX4u/manifests
+</code></pre>
+
+<p>打开<a href="http://192.168.12.128/dashboard">http://192.168.12.128/dashboard</a> （具体IP查看部署命令输出）,你会看到如下界面
+<img src="/images/Openstack登陆页面.png" alt="Horizon登陆页" title="Horizon登陆页" />
+你的页面颜色可能和我不一样，我这里使用了chrome的插件,用户名和密码在packstack-answers-20190817-203646.txt
+的这个文件里面，你可以使用sudo find / -name &ldquo;packstack-answers-*&ldquo;查看这个配置文件的位置，打开这个文件找到下面的两行</p>
+
+<pre><code># Password to use for the Identity service 'admin' user.
+CONFIG_KEYSTONE_ADMIN_PW=97a7dd26984940ff
+
+# Password to use for the Identity service 'demo' user.
+CONFIG_KEYSTONE_DEMO_PW=63c2dd13d9154ab6
+</code></pre>
+
+<p>admin用户对应密码CONFIG_KEYSTONE_ADMIN_PW,</p>
+
+<p>demo用户对应密码CONFIG_KEYSTONE_DEMO_PW</p>
+
+<p>我们使用demo用户登陆,登陆成功后看到
+<img src="/images/Horizon主页.png" alt="Horizon主页" title="Horizon主页" />
+这个时候All-in-One的环境就部署完成了，这里如果浏览器显示的是中文的话建议到浏览器的设置里面进行修改，
+因为这里的命名和里面模块名有关，英文名称对你后面学习Horizon的开发会有帮助</p>
+
+<h4 id="工作环境">工作环境</h4>
+
+<p>如果只是打算在本地开发的话可以跳过这一个步骤,IDE的话我们选择Pycharm，由于日常工作中可能会经常使用不同的虚拟机来部署不同的组件，
+所以我会把IDE安装在Win10上，然后使用Pycharm自带的文件同步服务(基于fstp)和远程Debug服务(基于pydev)
+进行开发与调试,具体参考<a href="https://www.jetbrains.com/help/pycharm/remote-debugging-with-product.html">Pycharm的远程部署及调试</a>.</p>
+
+<h4 id="其他资料">其他资料:</h4>
+
+<p><a href="https://www.openstack.org/analytics">OpenStack调查报告</a>:
+从中你可以看到OpenStack各个组件的发展趋势，用户的部署方式等等，让你对OpenStack当前的发展有一个比较清晰的认识。</p>
+
+<p><a href="https://pom.nops.cloud/Introduction/Intro.html">深入理解OpenStack自动化部署</a>:
+这本书主要讲puppet,现在Ansible已经占OpenStack自动化部署的半壁江山，或许你应该学习Ansible。</p>
+
+<p>Ansible相关:
+<a href="https://ansible-tran.readthedocs.io/en/latest/docs/intro.html">Ansible中文权威指南</a>、
+<a href="https://docs.openstack.org/openstack-ansible/rocky/user/aio/quickstart.html">使用Ansible部署OpenStack All-in-One</a></p><ul class="pa0">
+  
+</ul>
+<div class="mt6">
+      
+      
+      </div>
+    </section>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://heisenberg2017.github.io/" >
+    &copy; 2020 西斯小跳的博客
+  </a>
+    <div>
+
+
+
+
+
+
+
+<a href="https://github.com/Heisenberg2017" target="_blank" class="link-transition github link dib z-999 pt3 pt0-l mr1" title="Github link" rel="noopener" aria-label="follow on Github——Opens in a new window">
+  <svg  height="32px"  style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <path d="M256,32C132.3,32,32,134.8,32,261.7c0,101.5,64.2,187.5,153.2,217.9c11.2,2.1,15.3-5,15.3-11.1   c0-5.5-0.2-19.9-0.3-39.1c-62.3,13.9-75.5-30.8-75.5-30.8c-10.2-26.5-24.9-33.6-24.9-33.6c-20.3-14.3,1.5-14,1.5-14   c22.5,1.6,34.3,23.7,34.3,23.7c20,35.1,52.4,25,65.2,19.1c2-14.8,7.8-25,14.2-30.7c-49.7-5.8-102-25.5-102-113.5   c0-25.1,8.7-45.6,23-61.6c-2.3-5.8-10-29.2,2.2-60.8c0,0,18.8-6.2,61.6,23.5c17.9-5.1,37-7.6,56.1-7.7c19,0.1,38.2,2.6,56.1,7.7   c42.8-29.7,61.5-23.5,61.5-23.5c12.2,31.6,4.5,55,2.2,60.8c14.3,16.1,23,36.6,23,61.6c0,88.2-52.4,107.6-102.3,113.3   c8,7.1,15.2,21.1,15.2,42.5c0,30.7-0.3,55.5-0.3,63c0,6.1,4,13.3,15.4,11C415.9,449.1,480,363.1,480,261.7   C480,134.8,379.7,32,256,32z"/>
+</svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+
+
+</div>
+  </div>
+</footer>
+
+    
+
+  <script src="/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>

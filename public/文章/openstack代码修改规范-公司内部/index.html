@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <link href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/monokai.min.css" rel="stylesheet">
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+    <title>西斯小跳的博客  | OpenStack代码修改规范 公司内部</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.58.0-DEV" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="/dist/css/app.d98f2eb6bcd1eaedb7edf166bd16af26.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+    
+
+    
+
+    <meta property="og:title" content="OpenStack代码修改规范 公司内部" />
+<meta property="og:description" content="公司内部项目OpenStack代码修改规范" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://heisenberg2017.github.io/%E6%96%87%E7%AB%A0/openstack%E4%BB%A3%E7%A0%81%E4%BF%AE%E6%94%B9%E8%A7%84%E8%8C%83-%E5%85%AC%E5%8F%B8%E5%86%85%E9%83%A8/" />
+<meta property="article:published_time" content="2019-10-12T11:25:45+08:00" />
+<meta property="article:modified_time" content="2019-10-12T11:25:45+08:00" />
+<meta itemprop="name" content="OpenStack代码修改规范 公司内部">
+<meta itemprop="description" content="公司内部项目OpenStack代码修改规范">
+
+
+<meta itemprop="datePublished" content="2019-10-12T11:25:45&#43;08:00" />
+<meta itemprop="dateModified" content="2019-10-12T11:25:45&#43;08:00" />
+<meta itemprop="wordCount" content="80">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="OpenStack代码修改规范 公司内部"/>
+<meta name="twitter:description" content="公司内部项目OpenStack代码修改规范"/>
+
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="https://heisenberg2017.github.io/" class="f3 fw2 hover-white no-underline white-90 dib">
+      西斯小跳的博客
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/%E5%88%86%E4%BA%AB/" title="分享 page">
+              分享
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/%E6%95%99%E7%A8%8B/" title="教程 page">
+              教程
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/%E6%96%87%E7%AB%A0/" title="文章 page">
+              文章
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+
+
+
+
+
+
+
+<a href="https://github.com/Heisenberg2017" target="_blank" class="link-transition github link dib z-999 pt3 pt0-l mr1" title="Github link" rel="noopener" aria-label="follow on Github——Opens in a new window">
+  <svg  height="32px"  style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <path d="M256,32C132.3,32,32,134.8,32,261.7c0,101.5,64.2,187.5,153.2,217.9c11.2,2.1,15.3-5,15.3-11.1   c0-5.5-0.2-19.9-0.3-39.1c-62.3,13.9-75.5-30.8-75.5-30.8c-10.2-26.5-24.9-33.6-24.9-33.6c-20.3-14.3,1.5-14,1.5-14   c22.5,1.6,34.3,23.7,34.3,23.7c20,35.1,52.4,25,65.2,19.1c2-14.8,7.8-25,14.2-30.7c-49.7-5.8-102-25.5-102-113.5   c0-25.1,8.7-45.6,23-61.6c-2.3-5.8-10-29.2,2.2-60.8c0,0,18.8-6.2,61.6,23.5c17.9-5.1,37-7.6,56.1-7.7c19,0.1,38.2,2.6,56.1,7.7   c42.8-29.7,61.5-23.5,61.5-23.5c12.2,31.6,4.5,55,2.2,60.8c14.3,16.1,23,36.6,23,61.6c0,88.2-52.4,107.6-102.3,113.3   c8,7.1,15.2,21.1,15.2,42.5c0,30.7-0.3,55.5-0.3,63c0,6.1,4,13.3,15.4,11C415.9,449.1,480,363.1,480,261.7   C480,134.8,379.7,32,256,32z"/>
+</svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+
+    <header class="mt4 w-100">
+      <p class="f6 b helvetica tracked">
+          
+        文章
+      </p>
+      <h1 class="f1 athelas mb1">OpenStack代码修改规范 公司内部</h1>
+      
+      <time class="f6 mv4 dib tracked" datetime="2019-10-12T11:25:45&#43;08:00">October 12, 2019</time>
+      
+      
+    </header>
+
+    <section class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p>公司内部项目OpenStack代码修改规范</p>
+
+<h4 id="功能的新增和修改">功能的新增和修改</h4>
+
+<p>例子如下</p>
+
+<p>这是OpenStack的源代码,实例详情页有四个tab</p>
+
+<pre><code class="language-python">class InstanceDetailTabs(tabs.DetailTabsGroup):
+    slug = &quot;instance_details&quot;
+    tabs = (OverviewTab, InterfacesTab, LogTab, ConsoleTab, AuditTab)
+    sticky = True
+</code></pre>
+
+<p>horizon视图如下
+<img src="/images/开发前实例页.png" alt="开发前实例页" title="开发前实例页" /></p>
+
+<p>目前产品有一个需求，需要对这个详情页进行修改，他要求掉当前页面，然后这个页面需要改成显卡详情页，
+如果你完全按照产品需求实现修改代码如下</p>
+
+<pre><code class="language-python">class InstanceDetailTabs(tabs.DetailTabsGroup):
+    slug = &quot;instance_details&quot;
+    tabs = (VideoInfoTab, )
+    sticky = True
+</code></pre>
+
+<p>这个时候页面展示是符合产品要求的，但是在开发人员的视角里面，很多功能缺失了(概况，接口，日志)，之后的版本这些功能都缺失了，
+在版本迭代后，功能就永久缺失了，而且删除了源码，出现异常很难定位，难以回退。</p>
+
+<p>为了更好的开发和符合产品要求，我们在配置文件添加USER_VIEW变量，通过USER_VIEW=True来开启用户视图，也就是产品经理要求
+的视图</p>
+
+<p>正确代码如下</p>
+
+<pre><code class="language-python">class InstanceDetailTabs(tabs.DetailTabsGroup):
+    slug = &quot;instance_details&quot;
+    if getattr(settings, 'USER_VIEW', False):
+        tabs = (VideoInfoTab, )
+    else:
+        tabs = (OverviewTab, InterfacesTab, LogTab, ConsoleTab, AuditTab, VideoInfoTab)
+    sticky = True
+</code></pre>
+
+<p>当前开发视图(没有USER_VIEW参数或者USER_VIEW=False的页面)
+<img src="/images/开发后非用户视图实例页.png" alt="开发后非用户视图实例页" title="开发后非用户视图实例页" />
+开发视图功能都在，且新增的tab也能看到,供开发调试</p>
+
+<p>当前用户视图(USER_VIEW=True的页面)
+<img src="/images/开发后用户视图实例页.png" alt="开发后用户视图实例页" title="开发后用户视图实例页" />
+用户视图展示的是产品需要的视图,可提供测试使用</p>
+
+<p>我们使用getattr(settings, &lsquo;USER_VIEW&rsquo;, False)来获取参数
+settings是由以下代码导入的from django.conf import settings,
+OpenStack配置也是这么引入的，统一使用getattr(settings, &lsquo;USER_VIEW&rsquo;, False)更重要的
+地方是，即使没有这个参数也不会报错，并且切换用户的开发视图这个过程后来可能集成在horizon的界面
+的设置里面，便于之后的批量修改.</p><ul class="pa0">
+  
+</ul>
+<div class="mt6">
+      
+      
+      </div>
+    </section>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://heisenberg2017.github.io/" >
+    &copy; 2020 西斯小跳的博客
+  </a>
+    <div>
+
+
+
+
+
+
+
+<a href="https://github.com/Heisenberg2017" target="_blank" class="link-transition github link dib z-999 pt3 pt0-l mr1" title="Github link" rel="noopener" aria-label="follow on Github——Opens in a new window">
+  <svg  height="32px"  style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <path d="M256,32C132.3,32,32,134.8,32,261.7c0,101.5,64.2,187.5,153.2,217.9c11.2,2.1,15.3-5,15.3-11.1   c0-5.5-0.2-19.9-0.3-39.1c-62.3,13.9-75.5-30.8-75.5-30.8c-10.2-26.5-24.9-33.6-24.9-33.6c-20.3-14.3,1.5-14,1.5-14   c22.5,1.6,34.3,23.7,34.3,23.7c20,35.1,52.4,25,65.2,19.1c2-14.8,7.8-25,14.2-30.7c-49.7-5.8-102-25.5-102-113.5   c0-25.1,8.7-45.6,23-61.6c-2.3-5.8-10-29.2,2.2-60.8c0,0,18.8-6.2,61.6,23.5c17.9-5.1,37-7.6,56.1-7.7c19,0.1,38.2,2.6,56.1,7.7   c42.8-29.7,61.5-23.5,61.5-23.5c12.2,31.6,4.5,55,2.2,60.8c14.3,16.1,23,36.6,23,61.6c0,88.2-52.4,107.6-102.3,113.3   c8,7.1,15.2,21.1,15.2,42.5c0,30.7-0.3,55.5-0.3,63c0,6.1,4,13.3,15.4,11C415.9,449.1,480,363.1,480,261.7   C480,134.8,379.7,32,256,32z"/>
+</svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+
+
+</div>
+  </div>
+</footer>
+
+    
+
+  <script src="/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>

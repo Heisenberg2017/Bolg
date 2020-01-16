@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>教程 on 西斯小跳的博客</title>
+    <link>https://heisenberg2017.github.io/%E6%95%99%E7%A8%8B/</link>
+    <description>Recent content in 教程 on 西斯小跳的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Sat, 31 Aug 2019 18:19:42 +0800</lastBuildDate>
+    
+	<atom:link href="https://heisenberg2017.github.io/%E6%95%99%E7%A8%8B/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>OpenStack开发简明教程</title>
+      <link>https://heisenberg2017.github.io/%E6%95%99%E7%A8%8B/openstack%E5%BC%80%E5%8F%91%E7%AE%80%E6%98%8E%E6%95%99%E7%A8%8B/</link>
+      <pubDate>Sat, 31 Aug 2019 18:19:42 +0800</pubDate>
+      
+      <guid>https://heisenberg2017.github.io/%E6%95%99%E7%A8%8B/openstack%E5%BC%80%E5%8F%91%E7%AE%80%E6%98%8E%E6%95%99%E7%A8%8B/</guid>
+      <description>&lt;p&gt;这一系列是面向OpenStack二次开发的新手教程，目前是让看完教程并实践的同学对OpenStack开发有初步的认识，再稍加练习可以投入企业的云计算项目开发中去。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
