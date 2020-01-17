@@ -40,7 +40,7 @@
 
 <meta itemprop="datePublished" content="2020-01-16T11:13:52&#43;08:00" />
 <meta itemprop="dateModified" content="2020-01-16T11:13:52&#43;08:00" />
-<meta itemprop="wordCount" content="236">
+<meta itemprop="wordCount" content="235">
 
 
 
@@ -177,7 +177,7 @@
 
 <p>2.查看配置文件</p>
 
-<pre><code class="language-shell">vi vi watchpig/monitor.conf
+<pre><code class="language-shell">vi watchpig/monitor.conf
 </code></pre>
 
 <p>单个监控单元配置如下</p>
@@ -191,7 +191,7 @@ excludes = .*\.mo
 <p>path为监控的目录，当监控目录有文件变化时，会执行对应的action
 excludes用来排除你不需要监控的文件后缀，这个例子中.mo后缀的文件即使发生变化也不会执行对应action</p>
 
-<p>[]中的为项目描述，这些奇怪字符作用会在后面说明</p>
+<p>[]中的为项目描述，这些奇怪字符作用会在后面的自定义输出说明</p>
 
 <p>3.配置环境变量
 你可以临时配置或者写在.bashrc中
