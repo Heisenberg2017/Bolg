@@ -23,3 +23,14 @@ git commit -m "$msg"
 
 # Push source and build repos.
 git push origin master
+
+# push to bolg
+cp -r * ../../OpenStackCode/Heisenberg2017.github.io/
+
+cd ../../OpenStackCode/Heisenberg2017.github.io/
+
+git add .
+
+git commit -m "$msg"
+
+git push origin master
