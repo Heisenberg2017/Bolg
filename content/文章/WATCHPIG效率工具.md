@@ -169,6 +169,6 @@ watchpig/src/watchpig/painter.py->EMOJI->然后添加一个key和emoji，你也�
 
 1.Win10+、CentOS6+、Ubuntu18.04都自带了EMOJI的支持
 
-2.Python2.7 不支持Python3, 因为我目前的开发环境都是python2.7
+2.Python2.7 不支持Python3, 因为我目前的工作环境是python2.7
 
 3.可以运行在CentOS6+、Ubuntu18.04理论上linux都可以，不支持Win10
