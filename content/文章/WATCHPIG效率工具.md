@@ -45,7 +45,7 @@ git clone https://github.com/Heisenberg2017/watchpig.git
 
 2.查看配置文件
 ```shell script
-vi vi watchpig/monitor.conf
+vi watchpig/monitor.conf
 ```
 
 单个监控单元配置如下
@@ -58,7 +58,7 @@ excludes = .*\.mo
 path为监控的目录，当监控目录有文件变化时，会执行对应的action
 excludes用来排除你不需要监控的文件后缀，这个例子中.mo后缀的文件即使发生变化也不会执行对应action
 
-[]中的为项目描述，这些奇怪字符作用会在后面说明
+[]中的为项目描述，这些奇怪字符作用会在后面的自定义输出说明
 
 3.配置环境变量
 你可以临时配置或者写在.bashrc中
