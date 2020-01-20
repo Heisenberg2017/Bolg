@@ -12,6 +12,8 @@ googleAnalytics = ""
 enableRobotsTXT = true
 
 pluralizelisttitles=false
+disqusShortname = "disqus_DpeMFcB7ch"
+
 [sitemap]
   changefreq = "monthly"
   priority = 0.5
