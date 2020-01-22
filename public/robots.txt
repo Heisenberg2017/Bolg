@@ -1,6 +1,9 @@
 User-agent: Googlebot
 Disallow:
 
+User-agent: Googlebot 智能手机版
+Disallow:
+
 User-agent: AdsBot-Google
 Disallow:
 
