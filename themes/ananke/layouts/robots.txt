@@ -1,19 +1,8 @@
-User-agent: Googlebot
-Disallow:
-
-User-agent: Googlebot 智能手机版
-Disallow:
-
-User-agent: AdsBot-Google
-Disallow:
-
-User-agent: Googlebot-Image
-Disallow:
-
 User-agent: *
 # robotstxt.org - if ENV production variable is false robots will be disallowed.
 {{ if eq (getenv "HUGO_ENV") "production" | or (eq .Site.Params.env "production")  }}
-  Disallow:
+Disallow:
 {{ else }}
   Disallow: /
 {{ end }}
+Sitemap: https://heisenberg2017.github.io/sitemap.xml
